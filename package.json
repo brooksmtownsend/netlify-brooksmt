@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@assemblyscript/loader": "^0.9.2",
     "@types/jest": "24.0.18",
     "@types/node": "12.7.12",
     "@types/react": "16.9.5",
@@ -13,6 +14,11 @@
     "typescript": "3.6.4"
   },
   "scripts": {
+    "wasm-build": "npm run build && npm run asbuild && mkdir -p build/wasm && cp src/wasm/build/optimized* build/wasm/",
+    "wasm-serve": "npm run wasm-build && serve -s build",
+    "asbuild:untouched": "asc src/wasm/as/index.ts -b src/wasm/build/untouched.wasm -t src/wasm/build/untouched.wat --validate --sourceMap --debug",
+    "asbuild:optimized": "asc src/wasm/as/index.ts -b src/wasm/build/optimized.wasm -t src/wasm/build/optimized.wat --validate --sourceMap --optimize",
+    "asbuild": "npm run asbuild:untouched && npm run asbuild:optimized",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -32,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.9.2"
   }
 }
