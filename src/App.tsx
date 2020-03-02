@@ -6,9 +6,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
+        <h1>
           Welcome to my React playground!
-        </p>
+        </h1>
       <AssemblyScript/>
       </header>
     </div>
