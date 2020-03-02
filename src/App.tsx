@@ -7,9 +7,8 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <p>
-          This is a React app bootstrapped with create-react-app and built with Netlify!
+          Welcome to my React playground!
         </p>
-        <p> Welcome to the site!</p>
       <AssemblyScript/>
       </header>
     </div>

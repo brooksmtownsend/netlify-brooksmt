@@ -14,6 +14,7 @@
     "typescript": "3.6.4"
   },
   "scripts": {
+    "dev": "npm run asbuild && cp src/wasm/build/optimized* public/wasm && react-scripts start",
     "wasm-build": "npm run build && npm run asbuild && mkdir -p build/wasm && cp src/wasm/build/optimized* build/wasm/",
     "wasm-serve": "npm run wasm-build && serve -s build",
     "asbuild:untouched": "asc src/wasm/as/index.ts -b src/wasm/build/untouched.wasm -t src/wasm/build/untouched.wat --validate --sourceMap --debug",
